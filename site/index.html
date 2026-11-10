@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10131f">
+  <meta name="description" content="КосмоМаркет — вещи с орбитальным настроением.">
+  <title>КосмоМаркет — товары из другой галактики</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <div class="topline"><span class="status-dot"></span> МИССИЯ: НАЙТИ ВЕЩИ С ХОРОШИМ НАСТРОЕНИЕМ <span class="topline-right">ДОСТАВКА ПО ВСЕЙ ГАЛАКТИКЕ*</span></div>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="КосмоМаркет — главная">
+      <span class="brand-mark">✳</span><span>КОСМО<span class="brand-light">МАРКЕТ</span><small>ВЕЩИ С ОРБИТАЛЬНЫМ НАСТРОЕНИЕМ</small></span>
+    </a>
+    <nav class="main-nav" aria-label="Основная навигация">
+      <a href="#catalog">Каталог</a><a href="#about">О магазине</a>
+    </nav>
+    <a class="header-cart" href="#cart"><span>Корзина</span><span class="cart-count" id="header-cart-count">0</span></a>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <div class="eyebrow"><span></span> МАГАЗИН НЕОБЫЧНЫХ НАХОДОК</div>
+        <h1 id="hero-title">ТВОЯ СЛЕДУЮЩАЯ<br><em>ОРБИТА</em> — ЗДЕСЬ.</h1>
+        <p>Полезные мелочи, уютные штуки и маленькие поводы порадоваться. Собрали на одной планете.</p>
+        <a class="primary-button hero-button" href="#catalog">Исследовать каталог <span>↗</span></a>
+        <div class="hero-note"><span class="note-icon">✦</span><span>6 находок <b>·</b> 3 категории <b>·</b> бесконечное вдохновение</span></div>
+      </div>
+      <div class="hero-art" aria-label="Иллюстрация планет и космического пространства" role="img">
+        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+        <div class="planet planet-main"><span>✳</span></div><div class="planet planet-small"></div><div class="planet planet-ring"></div>
+        <span class="star star-a">✦</span><span class="star star-b">✧</span><span class="star star-c">✦</span><span class="star star-d">·</span>
+        <div class="art-label">NO. 001<br><b>GOOD STUFF<br>FROM SPACE</b></div>
+        <div class="art-coordinate">55° 45' N<br>37° 37' E</div>
+      </div>
+      <div class="hero-index">01 <span>/</span> 03</div>
+    </section>
+
+    <section class="catalog-section" id="catalog">
+      <div class="section-heading">
+        <div><div class="eyebrow"><span></span> ВЫБИРАЙ СВОЁ</div><h2>Каталог <span>находок</span></h2></div>
+        <button class="favorites-toggle" id="favorites-toggle" type="button" aria-pressed="false">♡ <span>Избранное</span> <b id="favorites-count">0</b></button>
+      </div>
+
+      <div class="catalog-tools">
+        <label class="search-box"><span aria-hidden="true">⌕</span><input id="search-input" type="search" placeholder="Найти что-то космическое..." autocomplete="off" aria-label="Поиск товаров"></label>
+        <div class="category-list" id="category-list" aria-label="Категории товаров"></div>
+        <label class="sort-box"><span>Сортировка</span><select id="sort-select" aria-label="Сортировка товаров"><option value="featured">Сначала интересное</option><option value="asc">Сначала дешевле</option><option value="desc">Сначала дороже</option></select></label>
+      </div>
+      <div class="results-line"><span id="results-count">Загружаем каталог…</span><span class="results-decoration">ПОДОБРАНО С ЛЮБОВЬЮ <b>✳</b></span></div>
+      <div class="product-grid" id="product-grid" aria-live="polite"></div>
+      <div class="empty-state hidden" id="products-empty"><span>☄</span><h3>Ничего не найдено</h3><p>Попробуй изменить запрос или сбросить фильтры.</p><button class="text-button" id="reset-filters" type="button">Сбросить фильтры ↗</button></div>
+    </section>
+
+    <section class="cart-section" id="cart">
+      <div class="cart-heading"><div><div class="eyebrow"><span></span> ТВОЙ МАРШРУТ</div><h2>Корзина <span>покупок</span></h2></div><div class="cart-heading-count" id="cart-heading-count">0 позиций</div></div>
+      <div class="cart-layout">
+        <div class="cart-items" id="cart-items" aria-live="polite"><div class="cart-empty"><span>🛸</span><b>Пока здесь пусто</b><p>Добавь что-нибудь из каталога — и полетели!</p><a href="#catalog">Перейти к находкам ↗</a></div></div>
+        <aside class="cart-summary">
+          <div class="summary-top"><span>СУММА ЗАКАЗА</span><span class="summary-spark">✳</span></div>
+          <div class="summary-row"><span>Товары</span><b id="subtotal">0 ₽</b></div>
+          <div class="summary-row discount-row"><span>Скидка</span><b id="discount">−0 ₽</b></div>
+          <div class="promo-area"><label for="promo-input">ЕСТЬ ПРОМОКОД?</label><div class="promo-entry"><input id="promo-input" type="text" placeholder="Введи код" maxlength="24" autocomplete="off"><button id="apply-promo" type="button">Применить</button></div><p class="promo-message" id="promo-message" aria-live="polite">Попробуй SPACE10 — минус 10%.</p></div>
+          <div class="total-row"><span>Итого</span><b id="total">0 ₽</b></div>
+          <button class="checkout-button" id="checkout-button" type="button" disabled>Оформить заказ <span>↗</span></button>
+          <p class="summary-caption">*Демо-магазин: оплата не производится.</p>
+        </aside>
+      </div>
+      <div class="notice" id="order-notice" role="status" aria-live="polite"></div>
+    </section>
+
+    <section class="about-strip" id="about"><span class="about-symbol">✳</span><div><b>Небольшой магазин. Большая вселенная.</b><p>Выбирай то, что делает каждый день чуточку интереснее.</p></div><a href="#catalog">Вернуться к каталогу ↑</a></section>
+  </main>
+
+  <footer class="site-footer"><a class="footer-brand" href="#top">✳ КОСМОМАРКЕТ</a><span>УЧЕБНЫЙ ПРОЕКТ · 2026</span><span>СДЕЛАНО НА ЗЕМЛЕ, С МЫСЛЯМИ О КОСМОСЕ</span></footer>
+</body>
+</html>
